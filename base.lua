@@ -53,7 +53,7 @@ function module:get_catchup_settings()
     local minimum = math.max(0, finite_number(self:conf("start_distance"), 10))
     local maximum = math.max(minimum + 1, finite_number(self:conf("full_distance"), 100))
     local multiplier = math.max(1, finite_number(self:conf("max_multiplier"), 5))
-    local height_multiplier = math.max(1, finite_number(self:conf("height_multiplier"), 10))
+    local height_multiplier = math.max(1, finite_number(self:conf("height_multiplier"), 3))
     return minimum, maximum, multiplier, height_multiplier
 end
 
