@@ -50,9 +50,9 @@ local function finite_number(value, fallback)
 end
 
 function module:get_catchup_settings()
-    local minimum = math.max(0, finite_number(self:conf("start_distance"), 10))
-    local maximum = math.max(minimum + 1, finite_number(self:conf("full_distance"), 100))
-    local multiplier = math.max(1, finite_number(self:conf("max_multiplier"), 5))
+    local minimum = math.max(0, finite_number(self:conf("start_distance"), 5))
+    local maximum = math.max(minimum + 1, finite_number(self:conf("full_distance"), 50))
+    local multiplier = math.max(1, finite_number(self:conf("max_multiplier"), 3))
     local height_multiplier = math.max(1, finite_number(self:conf("height_multiplier"), 3))
     return minimum, maximum, multiplier, height_multiplier
 end
@@ -75,12 +75,12 @@ local function add_number_option(key, default, text_id, normalize)
     })
 end
 
-add_number_option("start_distance", 10, "gtaim_min_distance", function(value)
+add_number_option("start_distance", 5, "gtaim_min_distance", function(value)
     local _, maximum = module:get_catchup_settings()
     return math.max(0, math.min(value, maximum - 1))
 end)
 
-add_number_option("full_distance", 150, "gtaim_max_distance", function(value)
+add_number_option("full_distance", 50, "gtaim_max_distance", function(value)
     local minimum = module:get_catchup_settings()
     return math.max(minimum + 1, value)
 end)
