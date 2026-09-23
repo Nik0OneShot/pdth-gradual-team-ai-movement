@@ -85,11 +85,11 @@ add_number_option("full_distance", 150, "gtaim_max_distance", function(value)
     return math.max(minimum + 1, value)
 end)
 
-add_number_option("max_multiplier", 10, "gtaim_max_multiplier", function(value)
+add_number_option("max_multiplier", 3, "gtaim_max_multiplier", function(value)
     return math.max(1, value)
 end)
 
-add_number_option("height_multiplier", 10, "gtaim_height_multiplier", function(value)
+add_number_option("height_multiplier", 3, "gtaim_height_multiplier", function(value)
     return math.max(1, value)
 end)
 
